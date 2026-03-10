@@ -1,0 +1,95 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { BRIDE, GROOM } from '@/constants';
+import Image from 'next/image';
+import { Instagram } from 'lucide-react';
+
+export default function GroomBride() {
+    return (
+        <section className="section-container space-y-20 bg-white/20">
+            {/* Elegant Heading */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center space-y-4"
+            >
+                <h2 className="text-4xl md:text-5xl font-serif text-foreground italic">Mempelai</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" />
+                <p className="text-text-muted text-sm tracking-widest uppercase max-w-md mx-auto leading-loose">
+                    Atas Izin Allah SWT kami akan melangsungkan pernikahan
+                </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 max-w-5xl mx-auto w-full relative">
+                {/* Groom */}
+                <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="luxury-card group text-center space-y-6 relative overflow-visible"
+                >
+                    <div className="absolute -top-10 -left-10 w-32 h-32 floral-overlay bg-[url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-vintage-watercolor-flower-frame-gold-glitter-wedding-invitations-floral-border-png-image_6144889.png')] opacity-30 rotate-45 group-hover:scale-110 transition-transform duration-1000" />
+
+                    <div className="relative w-48 h-48 mx-auto rounded-t-full overflow-hidden border-4 border-white shadow-2xl">
+                        <Image
+                            src={GROOM.image}
+                            alt={GROOM.name}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <h3 className="text-3xl font-serif text-primary italic">{GROOM.name}</h3>
+                        <p className="text-sm font-medium tracking-widest text-[#8b7355] uppercase">Putra dari</p>
+                        <p className="text-text-muted font-serif italic text-lg leading-relaxed">
+                            Bpk. {GROOM.father} & Ibu {GROOM.mother}
+                        </p>
+                    </div>
+                    <a href={`https://instagram.com/${GROOM.instagram.replace('@', '')}`} target="_blank" className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors">
+                        <Instagram size={20} className="p-1 bg-primary/10 rounded-full" />
+                        <span className="text-sm font-medium tracking-widest italic">{GROOM.instagram}</span>
+                    </a>
+                </motion.div>
+
+                {/* Bride */}
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="luxury-card group text-center space-y-6 relative overflow-visible"
+                >
+                    <div className="absolute -top-10 -right-10 w-32 h-32 floral-overlay bg-[url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-vintage-watercolor-flower-frame-gold-glitter-wedding-invitations-floral-border-png-image_6144889.png')] opacity-30 rotate-[220deg] group-hover:scale-110 transition-transform duration-1000" />
+
+                    <div className="relative w-48 h-48 mx-auto rounded-t-full overflow-hidden border-4 border-white shadow-2xl">
+                        <Image
+                            src={BRIDE.image}
+                            alt={BRIDE.name}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <h3 className="text-3xl font-serif text-primary italic">{BRIDE.name}</h3>
+                        <p className="text-sm font-medium tracking-widest text-[#8b7355] uppercase">Putri dari</p>
+                        <p className="text-text-muted font-serif italic text-lg leading-relaxed">
+                            Bpk. {BRIDE.father} & Ibu {BRIDE.mother}
+                        </p>
+                    </div>
+                    <a href={`https://instagram.com/${BRIDE.instagram.replace('@', '')}`} target="_blank" className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors">
+                        <Instagram size={20} className="p-1 bg-primary/10 rounded-full" />
+                        <span className="text-sm font-medium tracking-widest italic">{BRIDE.instagram}</span>
+                    </a>
+                </motion.div>
+
+                {/* 'dengan' label in the middle for desktop */}
+                <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary/30 text-5xl font-serif italic pointer-events-none">
+                    dengan
+                </div>
+            </div>
+        </section>
+    );
+}

@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+:root {
+  --background: #fdfcf8;
+  --foreground: #2d3e33;
+  --primary: #8b7355;
+  --primary-light: #a69076;
+  --secondary: #5d6d5f;
+  --accent: #d4af37;
+  --text-muted: #6b7a6e;
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+@layer base {
+  body {
+    @apply bg-[#fdfcf8] text-[#2d3e33] font-sans antialiased overflow-x-hidden;
+    /* Luxury textured background: Paper fibers + Gold dust */
+    background-image:
+      url("https://www.transparenttextures.com/patterns/gold-dust.png"),
+      url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply min-h-screen flex flex-col items-center justify-center relative px-6 py-28 overflow-hidden;
+  }
+
+  .luxury-card {
+    @apply bg-white/60 backdrop-blur-lg border border-white/40 shadow-[0_8px_32px_0_#8B73551A] rounded-[2.5rem] p-10;
+    background-image: url("https://www.transparenttextures.com/patterns/white-diamond.png");
+  }
+
+  .btn-premium {
+    @apply bg-[#8b7355] text-white px-10 py-4 rounded-full font-semibold tracking-widest uppercase text-sm transition-all duration-500 hover:bg-[#a69076] hover:shadow-[0_10px_20px_-10px_#8B735580] hover:-translate-y-1 active:scale-95;
+  }
+
+  .floral-overlay {
+    @apply absolute pointer-events-none z-0 opacity-20 transition-transform duration-1000 ease-out;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Custom Scrollbar for Luxury Feel */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full;
+}
+
+/* Animations */
+@keyframes luxuryFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  @apply opacity-0 translate-y-10 transition-all duration-1000 ease-out;
+}
+
+.reveal-up.active {
+  @apply opacity-100 translate-y-0;
+}

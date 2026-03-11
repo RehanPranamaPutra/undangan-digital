@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BRIDE, GROOM } from '@/constants';
+import { BRIDE, GROOM, ASSETS } from '@/constants';
 import Image from 'next/image';
 import { Instagram } from 'lucide-react';
 
 export default function GroomBride() {
     return (
-        <section className="section-container space-y-20 bg-white/20">
+        <section className="section-container space-y-6 bg-white/20">
             {/* Elegant Heading */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -31,14 +31,14 @@ export default function GroomBride() {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="luxury-card group text-center space-y-6 relative overflow-visible"
                 >
-                    <div className="absolute -top-10 -left-10 w-32 h-32 floral-overlay bg-[url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-vintage-watercolor-flower-frame-gold-glitter-wedding-invitations-floral-border-png-image_6144889.png')] opacity-30 rotate-45 group-hover:scale-110 transition-transform duration-1000" />
+                    <div className="absolute -top-10 -left-10 w-32 h-32 floral-overlay opacity-30 rotate-45 group-hover:scale-110 transition-transform duration-1000" style={{ backgroundImage: `url(${ASSETS.floralBorder})` }} />
 
-                    <div className="relative w-48 h-48 mx-auto rounded-t-full overflow-hidden border-4 border-white shadow-2xl">
+                    <div className="relative w-56 h-72 mx-auto rounded-t-[6rem] rounded-b-2xl overflow-hidden border-4 border-white shadow-[0_20px_50px_rgba(139,115,85,0.3)] bg-primary/5">
                         <Image
                             src={GROOM.image}
                             alt={GROOM.name}
                             fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="object-cover object-top transition-transform duration-1000 group-hover:scale-110"
                         />
                     </div>
                     <div className="space-y-2">
@@ -62,14 +62,14 @@ export default function GroomBride() {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="luxury-card group text-center space-y-6 relative overflow-visible"
                 >
-                    <div className="absolute -top-10 -right-10 w-32 h-32 floral-overlay bg-[url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-vintage-watercolor-flower-frame-gold-glitter-wedding-invitations-floral-border-png-image_6144889.png')] opacity-30 rotate-[220deg] group-hover:scale-110 transition-transform duration-1000" />
+                    <div className="absolute -top-10 -right-10 w-32 h-32 floral-overlay opacity-30 rotate-[220deg] group-hover:scale-110 transition-transform duration-1000" style={{ backgroundImage: `url(${ASSETS.floralBorder})` }} />
 
-                    <div className="relative w-48 h-48 mx-auto rounded-t-full overflow-hidden border-4 border-white shadow-2xl">
+                    <div className="relative w-56 h-72 mx-auto rounded-t-[6rem] rounded-b-2xl overflow-hidden border-4 border-white shadow-[0_20px_50px_rgba(139,115,85,0.3)] bg-primary/5">
                         <Image
                             src={BRIDE.image}
                             alt={BRIDE.name}
                             fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="object-cover object-top transition-transform duration-1000 group-hover:scale-110"
                         />
                     </div>
                     <div className="space-y-2">

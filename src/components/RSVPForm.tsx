@@ -13,18 +13,33 @@ interface RSVPData {
     created_at: string;
 }
 
-export default function RSVPForm() {
+interface RSVPFormProps {
+    guestName?: string;
+}
+
+export default function RSVPForm({ guestName = '' }: RSVPFormProps) {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
     const [formData, setFormData] = useState({
-        name: '',
+        name: guestName,
         attendance: 'hadir',
         message: ''
     });
     const [guestbook, setGuestbook] = useState<RSVPData[]>([]);
 
     useEffect(() => {
+        // Anti-spam: check if already submitted
+        const hasSubmitted = localStorage.getItem(`wedding_rsvp_submitted_${guestName.replace(/\s+/g, '_')}`);
+        if (hasSubmitted) {
+            setStatus('success');
+        }
+
         fetchMessages();
-    }, []);
+    }, [guestName]);
+
+    // Update form if guestName changes (though it shouldn't in this context)
+    useEffect(() => {
+        setFormData(prev => ({ ...prev, name: guestName }));
+    }, [guestName]);
 
     const fetchMessages = async () => {
         const { data, error } = await supabase
@@ -46,7 +61,7 @@ export default function RSVPForm() {
             .from('rsvps')
             .insert([
                 {
-                    name: formData.name,
+                    name: formData.name || guestName || 'Tamu Undangan',
                     attendance: formData.attendance,
                     message: formData.message
                 }
@@ -57,14 +72,16 @@ export default function RSVPForm() {
             alert('Maaf, gagal mengirim ucapan. Silakan coba lagi.');
             setStatus('idle');
         } else {
+            // Save submission state to prevent re-submission
+            localStorage.setItem(`wedding_rsvp_submitted_${guestName.replace(/\s+/g, '_')}`, 'true');
             setStatus('success');
             fetchMessages();
-            setFormData({ name: '', attendance: 'hadir', message: '' });
+            setFormData({ name: guestName, attendance: 'hadir', message: '' });
         }
     };
 
     return (
-        <section className="section-container bg-[#f9f7f0]/50 py-24 space-y-16 overflow-hidden">
+        <section className="section-container bg-[#f9f7f0]/50 space-y-6 overflow-hidden">
             {/* Elegant Heading */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -116,12 +133,11 @@ export default function RSVPForm() {
                                         <User size={14} /> Nama Lengkap
                                     </label>
                                     <input
-                                        required
+                                        readOnly
                                         type="text"
                                         value={formData.name}
-                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         placeholder="Contoh: Bpk. Rehan & Keluarga"
-                                        className="w-full px-5 py-4 rounded-[1.5rem] border border-primary/10 bg-white/50 focus:ring-4 focus:ring-primary/5 focus:bg-white outline-none transition-all shadow-sm"
+                                        className="w-full px-5 py-4 rounded-2xl border border-primary/10 bg-primary/5 text-primary/70 cursor-not-allowed outline-none transition-all shadow-sm"
                                     />
                                 </div>
 
@@ -133,7 +149,7 @@ export default function RSVPForm() {
                                         <select
                                             value={formData.attendance}
                                             onChange={(e) => setFormData({ ...formData, attendance: e.target.value })}
-                                            className="w-full px-5 py-4 rounded-[1.5rem] border border-primary/10 bg-white/50 focus:ring-4 focus:ring-primary/5 focus:bg-white outline-none transition-all appearance-none cursor-pointer shadow-sm text-foreground font-medium"
+                                            className="w-full px-5 py-4 rounded-2xl border border-primary/10 bg-white/50 focus:ring-4 focus:ring-primary/5 focus:bg-white outline-none appearance-none cursor-pointer shadow-sm text-foreground font-medium"
                                         >
                                             <option value="hadir">✅ Saya Akan Hadir</option>
                                             <option value="tidak_hadir">❌ Maaf, Saya Tidak Bisa Hadir</option>
@@ -155,7 +171,7 @@ export default function RSVPForm() {
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         placeholder="Berikan ucapan terbaik Anda untuk mempelai..."
-                                        className="w-full px-5 py-4 rounded-[1.5rem] border border-primary/10 bg-white/50 focus:ring-4 focus:ring-primary/5 focus:bg-white outline-none transition-all resize-none shadow-sm"
+                                        className="w-full px-5 py-4 rounded-2xl border border-primary/10 bg-white/50 focus:ring-4 focus:ring-primary/5 focus:bg-white outline-none transition-all resize-none shadow-sm"
                                     />
                                 </div>
 
@@ -192,7 +208,7 @@ export default function RSVPForm() {
                         </span>
                     </div>
 
-                    <div className="space-y-6 max-h-[800px] overflow-y-auto pr-6 custom-scrollbar">
+                    <div className="space-y-4 max-h-[450px] overflow-y-auto pr-2 custom-scrollbar">
                         <AnimatePresence mode="popLayout">
                             {guestbook.length === 0 ? (
                                 <p className="text-text-muted italic text-center py-20 grayscale opacity-50">Belum ada ucapan. Jadilah yang pertama!</p>
@@ -201,30 +217,27 @@ export default function RSVPForm() {
                                     <motion.div
                                         key={msg.id}
                                         layout
-                                        initial={{ opacity: 0, y: 20 }}
+                                        initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: idx * 0.05 }}
-                                        className="bg-white/60 backdrop-blur-sm p-6 rounded-[2rem] border border-primary/5 shadow-sm space-y-3 relative group overflow-hidden"
+                                        className="bg-white/40 p-5 rounded-2xl border border-primary/10 shadow-sm space-y-2 relative group"
                                     >
-                                        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-1000" />
-
-                                        <div className="flex justify-between items-center relative z-10">
-                                            <p className="font-bold text-primary font-serif uppercase tracking-widest text-sm">{msg.name}</p>
-                                            <span className={`text-[9px] px-3 py-1 rounded-full font-bold uppercase tracking-[0.1em] ${msg.attendance === 'hadir' ? 'bg-green-100 text-green-700' : 'bg-red-50 text-red-600'}`}>
-                                                {msg.attendance === 'hadir' ? '✅ Hadir' : '❌ Absen'}
+                                        <div className="flex justify-between items-start">
+                                            <div className="space-y-1">
+                                                <p className="font-bold text-primary font-serif uppercase tracking-widest text-xs">{msg.name}</p>
+                                                <div className="flex items-center gap-2 text-[9px] text-text-muted/60 font-bold uppercase tracking-widest">
+                                                    <Clock size={10} />
+                                                    {new Date(msg.created_at).toLocaleDateString('id-ID', {
+                                                        day: 'numeric',
+                                                        month: 'short'
+                                                    })}
+                                                </div>
+                                            </div>
+                                            <span className={`text-[8px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest ${msg.attendance === 'hadir' ? 'bg-green-100/50 text-green-700' : 'bg-red-50/50 text-red-600'}`}>
+                                                {msg.attendance === 'hadir' ? 'Hadir' : 'Absen'}
                                             </span>
                                         </div>
-                                        <p className="text-text-muted text-sm leading-[1.8] italic relative z-10">"{msg.message}"</p>
-                                        <div className="flex items-center justify-between mt-4 pt-4 border-t border-primary/5 relative z-10">
-                                            <div className="flex items-center gap-1.5 text-[10px] text-foreground/30 font-bold uppercase tracking-widest">
-                                                <Clock size={12} />
-                                                {new Date(msg.created_at).toLocaleDateString('id-ID', {
-                                                    day: 'numeric',
-                                                    month: 'long',
-                                                    year: 'numeric'
-                                                })}
-                                            </div>
-                                        </div>
+                                        <p className="text-text-muted text-sm leading-relaxed italic">"{msg.message}"</p>
                                     </motion.div>
                                 ))
                             )}

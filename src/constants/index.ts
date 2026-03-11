@@ -1,6 +1,6 @@
 export const BRIDE_NAME = "Atifa Arahma Adhana, A.Md.T";
-export const GROOM_NAME = "Jefriko Armanda";
-export const WEDDING_DATE = "Jumat & Sabtu, 03 & 04 April 2026";
+export const GROOM_NAME = "Jerfiko Armanda";
+export const WEDDING_DATE = "Sabtu & Minggu, 04 & 05 April 2026";
 export const COUNTDOWN_TARGET = "2026-04-03T08:00:00";
 
 export const BRIDE = {
@@ -9,32 +9,32 @@ export const BRIDE = {
   father: "Syawalludin",
   mother: "Arlina",
   instagram: "@atifaarhma",
-  image: "https://images.unsplash.com/photo-1549417229-aa67d3263c09?w=800&q=80"
+  image: "/images/wanita.png"
 };
 
 export const GROOM = {
   name: GROOM_NAME,
-  nickname: "Jefri",
+  nickname: "Jerfiko",
   father: "Alm. Anwar Riko",
   mother: "Yunimar",
-  instagram: "@jefrikoarmanda",
-  image: "https://images.unsplash.com/photo-1550005814-041469e3549f?w=800&q=80"
+  instagram: "@jerfikoarmanda",
+  image: "/images/pria.png"
 };
 
 export const EVENT = {
   akad: {
-    date: "Jumat, 03 April 2026",
+    date: "Jumat, 04 April 2026",
     time: "08:00 WIB - Selesai",
     location: "Perumahan Nuansa Ventura",
-    address: "Perumahan Nuansa Ventura, Kota Bengkulu",
-    maps: "https://maps.google.com"
+    address: "Perumahan Nuansa Ventura",
+    maps: "https://www.google.com/maps/place/0%C2%B005'53.4%22N+99%C2%B049'06.0%22E/@0.1051432,99.809144,3605m/data=!3m1!1e3!4m4!3m3!8m2!3d0.0981667!4d99.8183333?hl=en&entry=ttu&g_ep=EgoyMDI2MDMwOS4wIKXMDSoASAFQAw%3D%3D"
   },
   resepsi: {
-    date: "Sabtu, 04 April 2026",
+    date: "Sabtu, 05 April 2026",
     time: "10:00 WIB - Selesai",
     location: "Perumahan Nuansa Ventura",
-    address: "Perumahan Nuansa Ventura, Kota Bengkulu",
-    maps: "https://maps.google.com"
+    address: "Perumahan Nuansa Ventura",
+    maps: "https://www.google.com/maps/place/0%C2%B005'53.4%22N+99%C2%B049'06.0%22E/@0.1051432,99.809144,3605m/data=!3m1!1e3!4m4!3m3!8m2!3d0.0981667!4d99.8183333?hl=en&entry=ttu&g_ep=EgoyMDI2MDMwOS4wIKXMDSoASAFQAw%3D%3D"
   }
 };
 

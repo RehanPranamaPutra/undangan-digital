@@ -10,9 +10,10 @@ import GroomBride from '@/components/GroomBride';
 import EventSchedule from '@/components/EventSchedule';
 import Countdown from '@/components/Countdown';
 import FamilySection from '@/components/FamilySection';
-import Gallery from '@/components/Gallery';
+// import Gallery from '@/components/Gallery';
 import RSVPForm from '@/components/RSVPForm';
 import GiftSection from '@/components/GiftSection';
+import { ASSETS } from '@/constants';
 
 function PageContent() {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,14 +51,14 @@ function PageContent() {
                             <EventSchedule />
                             <Countdown />
                             <FamilySection />
-                            <Gallery />
+                            {/* <Gallery /> */}
                             <RSVPForm />
                             <GiftSection />
                         </div>
 
                         <footer className="relative py-20 text-center border-t border-primary/10 overflow-hidden">
                             {/* Decorative Background */}
-                            <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/gold-dust.png')]" />
+                            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: `url(${ASSETS.goldDust})` }} />
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -65,11 +66,11 @@ function PageContent() {
                                 viewport={{ once: true }}
                                 className="relative z-10 space-y-6"
                             >
-                                <p className="text-4xl md:text-5xl font-serif text-primary italic">Anggi & Bintang</p>
+                                <p className="text-4xl md:text-5xl font-serif text-primary italic">Jerfiko & Atifa</p>
                                 <div className="w-16 h-0.5 bg-primary/20 mx-auto" />
                                 <div className="space-y-2">
                                     <p className="text-xs text-text-muted mt-2 tracking-[0.35em] uppercase font-bold">Thank you for being part of our journey</p>
-                                    <p className="text-[10px] text-primary/40 italic">#AnggiBintangWedding</p>
+                                    <p className="text-[10px] text-primary/40 italic">#AtifaJerfikoWedding</p>
                                 </div>
                             </motion.div>
                         </footer>

@@ -8,8 +8,7 @@ export default function GiftSection() {
     const [copied, setCopied] = useState<string | null>(null);
 
     const accounts = [
-        { bank: 'BANK MANDIRI', number: '1234567890', owner: 'Bintang Putra Pratama' },
-        { bank: 'BANK BCA', number: '0987654321', owner: 'Anggi Afriyani' }
+        { bank: 'DANA', number: '085363854485', owner: 'Atifa Arahma Adhana' }
     ];
 
     const handleCopy = (num: string) => {
@@ -19,7 +18,7 @@ export default function GiftSection() {
     };
 
     return (
-        <section className="section-container space-y-16 bg-white/20">
+        <section className="section-container space-y-6 bg-white/20">
             {/* Elegant Heading */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}

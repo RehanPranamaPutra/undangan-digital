@@ -6,7 +6,7 @@ import { Calendar, Clock, MapPin } from 'lucide-react';
 
 export default function EventSchedule() {
     return (
-        <section className="section-container space-y-20 relative bg-white/10">
+        <section className="section-container space-y-6 relative bg-white/10">
             {/* Elegant Heading */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

@@ -55,7 +55,7 @@ export default function Countdown() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="text-center space-y-8 z-10"
+                className="text-center space-y-4 z-10"
             >
                 <div className="space-y-4">
                     <h2 className="text-4xl md:text-5xl font-serif text-foreground italic">Menuju Hari Bahagia</h2>

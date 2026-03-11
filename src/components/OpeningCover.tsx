@@ -79,10 +79,10 @@ export default function OpeningCover({ onOpen, guestName }: OpeningCoverProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1 }}
                     onClick={onOpen}
-                    className="btn-premium group flex items-center gap-3 mx-auto px-10 py-5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all w-full md:w-auto justify-center"
+                    className="btn-premium group flex items-center gap-3 mx-auto px-6 py-3 md:px-10 md:py-5 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all w-fit justify-center"
                 >
-                    <MailOpen className="group-hover:rotate-12 transition-transform" size={20} />
-                    <span className="tracking-[0.2em] font-bold">Buka Undangan</span>
+                    <MailOpen className="group-hover:rotate-12 transition-transform" size={18} />
+                    <span className="tracking-[0.2em] font-bold text-xs md:text-sm">Buka Undangan</span>
                 </motion.button>
             </div>
 

@@ -10,7 +10,7 @@ export default function FamilySection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="max-w-4xl mx-auto w-full space-y-12"
+                className="max-w-4xl mx-auto w-full space-y-6"
             >
                 <div className="text-center space-y-4">
                     <h2 className="text-4xl md:text-5xl font-serif text-foreground italic">Turut Mengundang</h2>

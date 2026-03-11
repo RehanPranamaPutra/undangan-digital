@@ -14,7 +14,7 @@ const images = [
 
 export default function Gallery() {
     return (
-        <section className="section-container space-y-20 bg-white/10">
+        <section className="section-container space-y-6 bg-white/10">
             {/* Elegant Heading */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}

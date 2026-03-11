@@ -1,14 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from '@/constants';
+import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE, ASSETS } from '@/constants';
 
 export default function Hero() {
     return (
         <section className="section-container text-center space-y-8 min-h-screen flex flex-col justify-center relative bg-white/30">
             {/* Animated Floral Background Elements */}
-            <div className="floral-overlay -top-20 -left-20 w-80 h-80 bg-[url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-vintage-watercolor-flower-frame-gold-glitter-wedding-invitations-floral-border-png-image_6144889.png')] rotate-12" />
-            <div className="floral-overlay -bottom-20 -right-20 w-80 h-80 bg-[url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-vintage-watercolor-flower-frame-gold-glitter-wedding-invitations-floral-border-png-image_6144889.png')] -rotate-12" />
+            <div className="floral-overlay -top-20 -left-20 w-80 h-80 rotate-12" style={{ backgroundImage: `url(${ASSETS.floralBorder})` }} />
+            <div className="floral-overlay -bottom-20 -right-20 w-80 h-80 -rotate-12" style={{ backgroundImage: `url(${ASSETS.floralBorder})` }} />
 
             <div className="space-y-6 z-10 relative">
                 <motion.div

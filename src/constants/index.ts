@@ -1,6 +1,6 @@
 export const BRIDE_NAME = "Atifa Arahma Adhana, A.Md.T";
 export const GROOM_NAME = "Jerfiko Armanda";
-export const WEDDING_DATE = "Sabtu & Minggu, 03 & 04 April 2026";
+export const WEDDING_DATE = "Jumat & Sabtu, 03 & 04 April 2026";
 export const COUNTDOWN_TARGET = "2026-04-03T08:00:00";
 
 export const BRIDE = {
@@ -65,10 +65,10 @@ export const FAMILY_LIST = {
   ],
   kakak_adik: [
     "Guswendi Kamil, SE / Opi Nurpita, A.Md",
-    "Irwan Saputra, S.Ap / Kurnia Siska Adzhani, S",
+    "Irwan Saputra, S.Ap / Kurnia Siska Adzhani, S.Pd",
     "Oli Septian, S.AB / Anita Ferlin, S.Tr.",
-    "Rina Rustaini, SE / Abdurrahman, S.Pt",
-    "Rini Rustaini, S.Pd / Azra, S.Pd",
+    "Rina Ruslaini, SE / Abdurrahman, S.Pt",
+    "Rini Ruslaini, S.Pd / Azra, S.Pd",
     "Altio Fernando, S.Tr.T",
     "Alfindo Agusra",
     "Asyraful Zaky"

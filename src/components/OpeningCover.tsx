@@ -16,7 +16,7 @@ export default function OpeningCover({ onOpen, guestName }: OpeningCoverProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-y-auto overflow-x-hidden py-10"
         >
             {/* Luxury Background Textures */}
             <div className="absolute inset-0 opacity-20 mix-blend-overlay rotate-12 scale-150" style={{ backgroundImage: `url(${ASSETS.floralBorder})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }} />
@@ -39,7 +39,7 @@ export default function OpeningCover({ onOpen, guestName }: OpeningCoverProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        className="text-text-muted font-serif italic tracking-[0.3em] uppercase text-xs"
+                        className="text-text-muted font-serif italic tracking-[0.3em] uppercase text-[10px] md:text-xs"
                     >
                         The Wedding of
                     </motion.p>
@@ -50,11 +50,11 @@ export default function OpeningCover({ onOpen, guestName }: OpeningCoverProps) {
                         transition={{ delay: 0.6, duration: 0.8 }}
                         className="space-y-2"
                     >
-                        <h1 className="text-5xl md:text-6xl font-serif text-primary italic leading-tight">
+                        <h1 className="text-3xl md:text-6xl font-serif text-primary italic leading-tight px-4">
                             {BRIDE_NAME}
                         </h1>
-                        <span className="block text-3xl font-serif text-accent">&</span>
-                        <h1 className="text-5xl md:text-6xl font-serif text-primary italic leading-tight">
+                        <span className="block text-2xl md:text-3xl font-serif text-accent">&</span>
+                        <h1 className="text-3xl md:text-6xl font-serif text-primary italic leading-tight px-4">
                             {GROOM_NAME}
                         </h1>
                     </motion.div>
@@ -67,8 +67,8 @@ export default function OpeningCover({ onOpen, guestName }: OpeningCoverProps) {
                         transition={{ delay: 0.8 }}
                         className="space-y-4 py-8 rounded-[2rem] bg-white/30 backdrop-blur-sm border border-white/50 shadow-sm"
                     >
-                        <p className="text-xs font-bold text-text-muted uppercase tracking-[0.2em]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                        <h2 className="text-3xl font-serif text-foreground italic capitalize underline decoration-primary/20 underline-offset-8">
+                        <p className="text-[10px] font-bold text-text-muted uppercase tracking-[0.2em]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                        <h2 className="text-2xl md:text-3xl font-serif text-foreground italic capitalize underline decoration-primary/20 underline-offset-8 px-4">
                             {decodeURIComponent(guestName)}
                         </h2>
                     </motion.div>

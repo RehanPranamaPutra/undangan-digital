@@ -4,6 +4,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import OpeningCover from '@/components/OpeningCover';
+import SplashScreen from '@/components/SplashScreen';
 import Hero from '@/components/Hero';
 import AudioPlayer from '@/components/AudioPlayer';
 import GroomBride from '@/components/GroomBride';
@@ -16,6 +17,7 @@ import GiftSection from '@/components/GiftSection';
 import { ASSETS } from '@/constants';
 
 function PageContent() {
+    const [isSplashing, setIsSplashing] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
     const searchParams = useSearchParams();
     const guest = searchParams.get('to') || 'Tamu Undangan';
@@ -23,20 +25,39 @@ function PageContent() {
     const handleOpenInvitation = () => {
         setIsOpen(true);
         document.body.style.overflow = 'auto';
+        
+        // Request Fullscreen for mobile app-like experience
+        const element = document.documentElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen().catch((err) => {
+                console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+            });
+        }
     };
 
     useEffect(() => {
+        // Splash screen duration
+        const timer = setTimeout(() => {
+            setIsSplashing(false);
+        }, 3000);
+
         if (!isOpen) {
             document.body.style.overflow = 'hidden';
         }
+
+        return () => clearTimeout(timer);
     }, [isOpen]);
 
     return (
         <main className="relative bg-background selection:bg-primary/20 selection:text-primary overflow-x-hidden min-h-screen">
             {/* Opening Cover */}
-            <AnimatePresence>
-                {!isOpen && (
-                    <OpeningCover onOpen={handleOpenInvitation} guestName={guest} />
+            <AnimatePresence mode="wait">
+                {isSplashing ? (
+                    <SplashScreen key="splash" />
+                ) : (
+                    !isOpen && (
+                        <OpeningCover key="opening" onOpen={handleOpenInvitation} guestName={guest} />
+                    )
                 )}
             </AnimatePresence>
 

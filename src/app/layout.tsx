@@ -9,11 +9,19 @@ const playfair = Playfair_Display({
   weight: ['400', '700']
 });
 
-// Setup font Montserrat untuk teks biasa
 const montserrat = Montserrat({ 
   subsets: ["latin"], 
   variable: "--font-sans" 
 });
+
+export const metadata = {
+  title: 'Undangan Pernikahan Jerfiko & Atifa',
+  description: 'Digital Wedding Invitation of Jerfiko & Atifa',
+  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+  themeColor: '#8b7355',
+  appleMobileWebAppCapable: 'yes',
+  appleMobileWebAppStatusBarStyle: 'black-translucent',
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

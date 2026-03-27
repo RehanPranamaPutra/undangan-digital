@@ -66,9 +66,10 @@ export const FAMILY_LIST = {
   kakak_adik: [
     "Guswendi Kamil, SE / Opi Nurpita, A.Md",
     "Irwan Saputra, S.Ap / Kurnia Siska Adzhani, S.Pd",
-    "Oli Septian, S.AB / Anita Ferlin, S.Tr.",
+    "Oji Septian, S.AB / Anita Ferlin, S.Tr.",
     "Rina Ruslaini, SE / Abdurrahman, S.Pt",
     "Rini Ruslaini, S.Pd / Azra, S.Pd",
+    "Elsi Anaputri, S.P",
     "Altio Fernando, S.Tr.T",
     "Alfindo Agusra",
     "Asyraful Zaky"

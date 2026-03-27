@@ -17,42 +17,31 @@ export default function FamilySection() {
                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    {/* Mamak List */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="luxury-card space-y-6"
-                    >
-                        <h3 className="text-xl font-serif text-primary italic border-b border-primary/10 pb-2">Keluarga Ibu (Mamak)</h3>
-                        <ul className="space-y-3">
-                            {FAMILY_LIST.mamak.map((name, idx) => (
-                                <li key={idx} className="text-sm text-text-muted leading-relaxed flex items-start gap-2">
-                                    <span className="text-primary mt-1">•</span>
-                                    {name}
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-
-                    {/* Etek / Apak List */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="luxury-card space-y-6"
-                    >
-                        <h3 className="text-xl font-serif text-primary italic border-b border-primary/10 pb-2">Keluarga Ayah (Etek / Apak)</h3>
-                        <ul className="space-y-3">
-                            {FAMILY_LIST.etek_apak.map((name, idx) => (
-                                <li key={idx} className="text-sm text-text-muted leading-relaxed flex items-start gap-2">
-                                    <span className="text-primary mt-1">•</span>
-                                    {name}
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
+                <div className="max-w-4xl mx-auto space-y-12">
+                    {[
+                        { title: "Mamak", list: FAMILY_LIST.mamak },
+                        { title: "Etek / Apak", list: FAMILY_LIST.etek_apak },
+                        { title: "Apak / Andeh", list: FAMILY_LIST.apak_andeh },
+                        { title: "Kakak / Adik", list: FAMILY_LIST.kakak_adik }
+                    ].map((group, index) => (
+                        <motion.div
+                            key={group.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="space-y-4 text-center"
+                        >
+                            <h3 className="text-xl font-serif text-primary italic border-b border-primary/10 pb-2 w-fit mx-auto px-4">{group.title}</h3>
+                            <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+                                {group.list.map((name, idx) => (
+                                    <li key={idx} className="text-sm text-text-muted leading-relaxed">
+                                        {name}
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    ))}
                 </div>
             </motion.div>
         </section>

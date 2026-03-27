@@ -48,9 +48,11 @@ export default function GroomBride() {
                             Bpk. {GROOM.father} & Ibu {GROOM.mother}
                         </p>
                     </div>
-                    <a href={`https://instagram.com/${GROOM.instagram.replace('@', '')}`} target="_blank" className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors">
+                    <a href={GROOM.instagram} target="_blank" className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors">
                         <Instagram size={20} className="p-1 bg-primary/10 rounded-full" />
-                        <span className="text-sm font-medium tracking-widest italic">{GROOM.instagram}</span>
+                        <span className="text-sm font-medium tracking-widest italic">
+                            @{GROOM.instagram.split('?')[0].split('/').filter(Boolean).pop()}
+                        </span>
                     </a>
                 </motion.div>
 
@@ -79,9 +81,11 @@ export default function GroomBride() {
                             Bpk. {BRIDE.father} & Ibu {BRIDE.mother}
                         </p>
                     </div>
-                    <a href={`https://instagram.com/${BRIDE.instagram.replace('@', '')}`} target="_blank" className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors">
+                    <a href={BRIDE.instagram} target="_blank" className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors">
                         <Instagram size={20} className="p-1 bg-primary/10 rounded-full" />
-                        <span className="text-sm font-medium tracking-widest italic">{BRIDE.instagram}</span>
+                        <span className="text-sm font-medium tracking-widest italic">
+                            @{BRIDE.instagram.split('?')[0].split('/').filter(Boolean).pop()}
+                        </span>
                     </a>
                 </motion.div>
 

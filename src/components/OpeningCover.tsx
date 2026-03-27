@@ -51,11 +51,11 @@ export default function OpeningCover({ onOpen, guestName }: OpeningCoverProps) {
                         className="space-y-2"
                     >
                         <h1 className="text-5xl md:text-6xl font-serif text-primary italic leading-tight">
-                            {BRIDE_NAME.split(',')[0]}
+                            {BRIDE_NAME}
                         </h1>
                         <span className="block text-3xl font-serif text-accent">&</span>
                         <h1 className="text-5xl md:text-6xl font-serif text-primary italic leading-tight">
-                            {GROOM_NAME.split(' ')[0]}
+                            {GROOM_NAME}
                         </h1>
                     </motion.div>
                 </div>

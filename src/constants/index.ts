@@ -1,5 +1,5 @@
 export const BRIDE_NAME = "Atifa Arahma Adhana, A.Md.T";
-export const GROOM_NAME = "Jerfiko Armanda";
+export const GROOM_NAME = "Jefriko Armanda";
 export const WEDDING_DATE = "Jumat & Sabtu, 03 & 04 April 2026";
 export const COUNTDOWN_TARGET = "2026-04-03T08:00:00";
 
@@ -14,7 +14,7 @@ export const BRIDE = {
 
 export const GROOM = {
   name: GROOM_NAME,
-  nickname: "Jerfiko Armanda",
+  nickname: "Jefriko Armanda",
   father: "Alm. Anwar Riko",
   mother: "Yunimar",
   instagram: "https://www.instagram.com/jeffarm46?igsh=aHp0aWloZmcxcHdj",

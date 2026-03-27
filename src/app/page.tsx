@@ -73,7 +73,7 @@ function PageContent() {
                             <Countdown />
                             <FamilySection />
                             {/* <Gallery /> */}
-                            <RSVPForm />
+                            <RSVPForm guestName={guest} />
                             <GiftSection />
                         </div>
 

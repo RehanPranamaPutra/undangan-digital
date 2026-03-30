@@ -9,7 +9,7 @@ export const BRIDE = {
   father: "Syawalludin",
   mother: "Arlina",
   instagram: "https://www.instagram.com/ATFRHMDHANA",
-  image: "/images/wanita.png"
+  image: "/images/cewe.png"
 };
 
 export const GROOM = {
@@ -18,7 +18,7 @@ export const GROOM = {
   father: "Alm. Anwar Riko",
   mother: "Yunimar",
   instagram: "https://www.instagram.com/jeffarm46?igsh=aHp0aWloZmcxcHdj",
-  image: "/images/pria.png"
+  image: "/images/laki.png"
 };
 
 export const EVENT = {

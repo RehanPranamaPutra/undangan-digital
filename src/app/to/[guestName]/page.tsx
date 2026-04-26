@@ -9,7 +9,6 @@ import AudioPlayer from '@/components/AudioPlayer';
 import GroomBride from '@/components/GroomBride';
 import EventSchedule from '@/components/EventSchedule';
 import Countdown from '@/components/Countdown';
-import FamilySection from '@/components/FamilySection';
 import Gallery from '@/components/Gallery';
 import RSVPForm from '@/components/RSVPForm';
 import GiftSection from '@/components/GiftSection';
@@ -54,8 +53,7 @@ function PageContent() {
               <GroomBride />
               <EventSchedule />
               <Countdown />
-              <FamilySection />
-              {/* <Gallery /> */}
+              <Gallery />
               <RSVPForm guestName={recipient} />
               <GiftSection />
             </div>

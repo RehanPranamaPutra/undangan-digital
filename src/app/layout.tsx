@@ -14,11 +14,16 @@ const montserrat = Montserrat({
   variable: "--font-sans" 
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#8b7355',
+};
+
 export const metadata = {
   title: 'Undangan Pernikahan Jerfiko & Atifa',
   description: 'Digital Wedding Invitation of Jerfiko & Atifa',
-  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
-  themeColor: '#8b7355',
   appleMobileWebAppCapable: 'yes',
   appleMobileWebAppStatusBarStyle: 'black-translucent',
 };

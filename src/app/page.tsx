@@ -10,8 +10,7 @@ import AudioPlayer from '@/components/AudioPlayer';
 import GroomBride from '@/components/GroomBride';
 import EventSchedule from '@/components/EventSchedule';
 import Countdown from '@/components/Countdown';
-import FamilySection from '@/components/FamilySection';
-// import Gallery from '@/components/Gallery';
+import Gallery from '@/components/Gallery';
 import RSVPForm from '@/components/RSVPForm';
 import GiftSection from '@/components/GiftSection';
 import { ASSETS } from '@/constants';
@@ -71,8 +70,7 @@ function PageContent() {
                             <GroomBride />
                             <EventSchedule />
                             <Countdown />
-                            <FamilySection />
-                            {/* <Gallery /> */}
+                            <Gallery />
                             <RSVPForm guestName={guest} />
                             <GiftSection />
                         </div>

@@ -38,6 +38,7 @@ export default function GroomBride() {
                             src={GROOM.image}
                             alt={GROOM.name}
                             fill
+                            sizes="(max-width: 768px) 100vw, 300px"
                             className="object-cover object-top transition-transform duration-1000 group-hover:scale-110"
                         />
                     </div>
@@ -71,6 +72,7 @@ export default function GroomBride() {
                             src={BRIDE.image}
                             alt={BRIDE.name}
                             fill
+                            sizes="(max-width: 768px) 100vw, 300px"
                             className="object-cover object-top transition-transform duration-1000 group-hover:scale-110"
                         />
                     </div>
